@@ -1,0 +1,278 @@
+.snowman-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+    width: 100px;
+    height: 120px;
+    pointer-events: none;
+}
+
+.snowman * {
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.snowman {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+/* Body Parts */
+.snow-body-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #fff, #e6e6e6);
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.snow-body-middle {
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 45px;
+    background: radial-gradient(circle at 30% 30%, #fff, #e6e6e6);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.snow-head {
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, #fff, #e6e6e6);
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Details */
+.button-one {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #333;
+}
+
+.button-two {
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #333;
+}
+
+.eye-left {
+    top: 12px;
+    left: 8px;
+    width: 4px;
+    height: 4px;
+    background-color: #333;
+}
+
+.eye-right {
+    top: 12px;
+    right: 8px;
+    width: 4px;
+    height: 4px;
+    background-color: #333;
+}
+
+.carrot-nose {
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 4px;
+    background-color: #ff6b00;
+    border-radius: 2px;
+}
+
+/* Hat */
+.hat {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.hat-brim {
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+.hat-top {
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 16px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* Talking Animation */
+.snowman.talking {
+    animation: bounce 2s infinite ease-in-out, talk-wobble 0.2s infinite;
+}
+
+@keyframes talk-wobble {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-2deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+}
+
+/* Scarf */
+.scarf {
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 8px;
+    background-color: #d43737;
+    z-index: 4;
+    border-radius: 2px;
+}
+
+.scarf::after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    width: 8px;
+    height: 20px;
+    background-color: #d43737;
+    transform: rotate(-10deg);
+    animation: wave 2s infinite ease-in-out;
+}
+
+/* Arms */
+.arm-left {
+    top: 50px;
+    left: -10px;
+    width: 30px;
+    height: 4px;
+    background-color: #5d4037;
+    transform: rotate(20deg);
+    z-index: 1;
+}
+
+.arm-right {
+    top: 50px;
+    right: -10px;
+    width: 30px;
+    height: 4px;
+    background-color: #5d4037;
+    transform: rotate(-20deg);
+    z-index: 1;
+}
+
+/* Speech Bubble */
+.speech-bubble {
+    position: absolute;
+    bottom: 110%;
+    left: 80%;
+    width: 160px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    transform: rotate(45deg);
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Mobile Resize */
+@media (max-width: 768px) {
+    .snowman-container {
+        transform: scale(0.6);
+        transform-origin: bottom left;
+        left: 10px;
+        bottom: 10px;
+    }
+
+    .speech-bubble {
+        font-size: 1.3rem;
+        width: 200px;
+        bottom: 120%;
+    }
+}
